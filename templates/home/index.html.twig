@@ -47,7 +47,8 @@
 				<sejour>
 					<h2><p>{{ sejour.SEJINTITULE }}</p></h2>
 					{{ sejour.SEJMONTANTMBI }}<BR/>
-					A partir du {{ sejour.SEJDTEDEB | date('d/m/Y')}}
+					A partir du {{ sejour.SEJDTEDEB | localizeddate('none', 'none', 'fr', null, 'EEEE d MMMM Y') }}<br />
+                    Jusqu'au {{ sejour.SEJDTEDEB | date_modify("+ #{ sejour.SEJDUREE } day") | localizeddate('none', 'none', 'fr', null, 'EEEE d MMMM Y') }}<br />
 					{{ sejour.SEJDUREE }} nuits
 				</sejour>
 			{% endfor %}
