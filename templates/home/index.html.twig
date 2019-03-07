@@ -1,20 +1,57 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Git pushing!{% endblock %}
+{% block title %}SAINT PAUL DU TERRAY{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<main class="main">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'G:/17TGODAL/Symfony/StPaul/src/Controller/StPaulController.php'|file_link(0) }}">src/Controller/StPaulController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'G:/17TGODAL/Symfony/StPaul/templates/st_paul/index.html.twig'|file_link(0) }}">templates/st_paul/index.html.twig</a></code></li>
-    </ul>
-</div>
+	<header-null class="header-null">
+		<header class="header">
+			<h1>SAINT PAUL DU TERRAY</a></h1>
+			<menu-null class="menu-null">
+				<div class="menu">
+					<a href="#" class="menu_link">Index</a>
+					<a href="#" class="menu_link">Manifestation</a>
+					<a href="#" class="menu_link">Facturation</a>
+					<a href="#" class="menu_link">Contact</a>
+				</div>
+			</menu-null>
+		</header>
+	</header-null>
+
+	<noscreen/>
+
+		<left class="left">
+			<h2>Madame, Monsieur,</h2>
+			<p>
+				Votre enfant va partir durant l'année scolaire en classe de découverte.
+				<br />Une participation financière par enfant va prochainement vous être demandée.
+				<br /><br />Cette année le conseil municipal a décidé d'instaurer trois types de réductions
+				et un plafonnement à 100 Euros par enfant.
+			</p>
+			<br />
+			<ul>
+				<li>Réduction de 10% si le Quotient Familial est inférieur à 500 Euros</li>
+				<li>Réduction de 20% pour famille de 2 enfants</li>
+				<li>Réduction de 40% pour famille de 3 enfants ou plus</li>
+			</ul>
+		</left>
+
+	<noscreen/>
+
+		<right class="right">
+			<h2>Liste des séjours prévus </h2>
+			<fieldset>
+			{% for sejour in sejours %}
+				<sejour>
+					<h2><p>{{ sejour.SEJINTITULE }}</p></h2>
+					{{ sejour.SEJMONTANTMBI }}<BR/>
+					A partir du {{ sejour.SEJDTEDEB | date('d/m/Y')}}
+					{{ sejour.SEJDUREE }} nuits
+				</sejour>
+			{% endfor %}
+			</fieldset>
+		</right>
+</main>
 {% endblock %}
