@@ -102,5 +102,23 @@ class Sejour
         return $this;
     }
 
+    /**
+     * Retourne la date de fin de séjour
+     * @return mixed
+     */
+    public function getSejDteFin()
+    {
+        return $this->sejdtedeb->add(new \DateInterval('P'.$this->sejduree.'D'));
+    }
+
+    /**
+     * Formatage jj-mm-aaaa
+     * @param $pDte : date a formater
+     * @return mixed
+     */
+    public function getSejDteFormatFR($pDte)
+    {
+        return date("d-m-Y", strtotime($pDte));
+    }
 
 }
